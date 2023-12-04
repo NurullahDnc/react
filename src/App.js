@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import Navbar,{AltNavbar} from './components/navbar'; //* 2. comps olursa  {} icerisine tanımlıyoruz
+import Govde from './components/body'
+
 
 function App() {
-  return (
+
+  const [deger, setDeger]=useState(1); //* hooks,state = useState icerisindeki veri "deger"de tutuluyor, guncelleme "setDeger" ile yapılıyor
+  const Azalt=()=>{setDeger(deger-1)} //* func. olusturdum ve azalt button'una cagırdım
+  
+  return (  
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        
+        <Navbar /> {/*copmaprents burada tanımlıyoruz gostermek icin */}
+        <AltNavbar />
+        <Govde />
+
+        <p> <button onClick={()=>{setDeger(deger+1)}}> Arttır</button> </p> {/*tıklandıgında "setDeger" ile degeri guncelle */}
+          {deger}  {/* olusturulan state cagirildi*/}
+        <p> <button onClick={Azalt}>Azalt</button> </p>  {/*func. olusturup buraya'da cagırabiliriz */}
+
+      
     </div>
   );
 }

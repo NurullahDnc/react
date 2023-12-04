@@ -16,12 +16,11 @@ const Navbar=()=> {
   )
 }
 
-
-export  function AltNavbar() {  //*ana comps "export default" ediyoruz, diger compsları sadece "export" ediyoruz yoksa hata verir
+/*parametre verdik gelen degerleri karsılaması icin */
+export  function AltNavbar(props) {  //ana comps "export default" ediyoruz, diger compsları sadece "export" ediyoruz yoksa hata verir
   return (
     <div className='AltNavbar'>
-
-      
+       
     </div>
   )
 }

@@ -1,12 +1,13 @@
 
-import React,{useContext} from 'react'  /*useContext import ediyoruz  */
-import { TemaVerisi } from '../../App'; /*tema verisini import ediyoruz */
+import React,{useContext} from 'react'  /* react altında useContext import ediyoruz  */
+import { TemaVerisi } from '../../App'; /* App de olan temaverisini import ediyoruz */
 
 export default function Icerik() {
   return (
-    <div style={{background:"#cd853f"}}>
+    <div style={useContext(TemaVerisi)}>  {/*object olgugu icin temaverisi tek suslu parantez kulanıyoruz */} 
 
-        <p>{useContext(TemaVerisi)}</p> {/*TemaVerisi icindeki Tum veriyi getir */}
+        {/*TemaVerisini kulanmak icin UseContent iceririsine yazıyoruz */}
+        {/* <p>{useContext(TemaVerisi)}</p> TemaVerisi icindeki Tum veriyi getir */}
         <h1> React ogreniyorum</h1>
         <h2> useContext ile comparentler arası veri tasima</h2>
         <p>Lorem impus dolor sit amed. Lorem impus dolor sit amed. Lorem impus dolor sit amed. Lorem impus dolor sit amed.</p>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import './App.css';
 import Navbar, { AltNavbar } from './components/navbar'; //* 2. comps olursa  {} icerisine tanımlıyoruz
 import Govde from './components/body';
@@ -60,6 +60,19 @@ function App() {
 
   }, [timer])/*parametre giriyoruz, count degistginde calısın, belirtiyoruz yani */
 
+  /*useref kulanımı dom referanslarına ulasmak icin kulanılır */
+  const[renk, setRenk]= useState("");
+  const renkDegisimi =  useRef(null); /* ref verielen elemente ulasmamızı saglıyorx */
+
+  const renkDegistir=()=>{
+    /* renkDegisimi refini alan, current= ulasmak icin?, valuesini getir,  body rengini degistir*/
+    document.body.style.background=renkDegisimi.current.value;
+    setRenk(renkDegisimi.current.value)
+    console.log(renkDegisimi.current.value)
+  }
+
+
+//? -----------------------------------------------------------------------------------------------------/
   return (
     <div className="App">
 
@@ -92,7 +105,7 @@ function App() {
       </TemaVerisi.Provider>
 
       {/*useEffect kulanımı */}
-      <button onClick={() => { setCount(count + 1) }}>useEffect Arttır</button>
+      <button onClick={() => { setCount(count + 1) }}>console useEffect Arttır</button>
       {/*useeffect orengi zamanlayıcı */}
       <p>useeffect orengi zamanlayıcı </p>
       <div style={{
@@ -101,7 +114,11 @@ function App() {
       }}>
         {timer}
       </div>
-
+      
+      {"useRef kulanımı"}
+      <p>inglizce renk giriniz</p>
+      <input type="text" ref={renkDegisimi} onChange={renkDegistir} />
+      <p>{renk}</p>
 
     </div>
   );

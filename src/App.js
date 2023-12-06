@@ -4,6 +4,7 @@ import Navbar, { AltNavbar } from './components/navbar'; //* 2. comps olursa  {}
 import Govde from './components/body';
 import Container from './components/props/container';
 import Icerik from './components/useContextHooks/icerik';
+import Axios from './components/axios'
 
 
 /*useContext Api,  func. dısında tanımlıyoruz*/
@@ -68,7 +69,7 @@ function App() {
     /* renkDegisimi refini alan, current= ulasmak icin?, valuesini getir,  body rengini degistir*/
     document.body.style.background=renkDegisimi.current.value;
     setRenk(renkDegisimi.current.value)
-    console.log(renkDegisimi.current.value)
+    // console.log(renkDegisimi.current.value)
   }
 
 
@@ -119,6 +120,9 @@ function App() {
       <p>inglizce renk giriniz</p>
       <input type="text" ref={renkDegisimi} onChange={renkDegistir} />
       <p>{renk}</p>
+
+      {/*Axios kulanımı */}
+      <Axios />
 
     </div>
   );
